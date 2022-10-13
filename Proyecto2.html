@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto2</title>
+    <style type="text/css">
+        body {
+            background-color: rgb(143, 254, 254);
+        }
+
+        section {
+            font-size: 40px;
+            text-align: center;
+            margin: 100px;
+            color: indigo;
+            text-transform: uppercase;
+        }
+
+        #contador {
+            font-size: 80px;
+            font-weight: 700;
+        }
+
+        #btnIncrementar {
+            border: none;
+            background-color: blue;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: 500;
+            color: white;
+        }
+
+        #btnIncrementar:hover {
+            background-color: blueviolet;
+            cursor: pointer;
+        }
+
+        #btnDisminuir {
+            border: none;
+            background-color: blue;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: 500;
+            color: white;
+        }
+
+        #btnDisminuir:hover {
+            background-color: blueviolet;
+            cursor: pointer;
+        }
+
+        #btnReiniciar {
+            border: none;
+            background-color: blue;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: 500;
+            color: white;
+        }
+
+        #btnReiniciar:hover {
+            background-color: blueviolet;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>
+            <h1>Contador</h1>
+            <p id="contador"></p>
+            <button id="btnDisminuir">Disminuir</button>
+            <button id="btnReiniciar">Reiniciar</button>
+            <button id="btnIncrementar">Incrementar</button>
+        </div>
+    </section>
+    <script type="text/javascript">
+        var btnInc = document.getElementById('btnIncrementar');
+        var btnDis = document.getElementById('btnDisminuir');
+        var btnRei = document.getElementById('btnReiniciar');
+        var pCont = document.getElementById('contador');
+        var counter = 0;
+        function cambiarColor(p) {
+            var nuevoColor = document.getElementById(p);
+            if (counter < 0) {
+                nuevoColor.style.color = 'red';
+            } else if (counter > 0) {
+                nuevoColor.style.color = 'darkgreen';
+            } else {
+                nuevoColor.style.color = 'chocolate'
+            }
+        }
+        cambiarColor('contador');
+        pCont.textContent = counter;
+        btnInc.onclick = function () {
+            counter++;
+            cambiarColor('contador');
+            pCont.textContent = counter;
+        }
+        btnDis.onclick = function () {
+            counter--;
+            cambiarColor('contador');
+            pCont.textContent = counter;
+        }
+        btnRei.onclick = function () {
+            counter = 0;
+            cambiarColor('contador');
+            pCont.textContent = counter;
+        }
+    </script>
+</body>
+
+</html>
